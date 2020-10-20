@@ -44,5 +44,23 @@ def six_august():
     plt.gcf().autofmt_xdate()
     plt.savefig('six.png')
 
-six_august()
 
+def seven_august():
+    x = []
+    y = []
+    with open('2020-08-07.csv', 'r') as csvfile:
+        plots = csv.reader(csvfile, delimiter=',')
+        next(plots)
+        for row in plots:
+            y.append(float(row[1]))
+            x.append(float(row[0]))
+    plt.plot(x, y)
+    plt.xlabel('Time of Day')
+    plt.ylabel('BGL Reading')
+    plt.title('BGL Readings 7th of\nAugust')
+    plt.gcf().autofmt_xdate()
+    plt.savefig('seven.png')
+
+
+six_august()
+seven_august()
